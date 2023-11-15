@@ -1,12 +1,23 @@
 {
+  "private": true,
+  "author": "GG",
   "name": "gg-creaciones",
   "version": "1.0.0",
-  "description": "",
+  "description": "An admin-only sales and stock administration app",
   "main": "index.js",
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev:front": "yarn --cwd frontend dev --host",
+    "dev:back": "yarn --cwd backend dev",
+    "dev:back:logs": "yarn --cwd backend dev:logs",
+    "build:front": "yarn --cwd frontend build",
+    "build:back": "yarn --cwd backend build"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "dependencies": {
+    "cross-env": "^7.0.3"
+  },
+  "license": "MIT"
 }
