@@ -1,21 +1,44 @@
-import express from 'express'
-import cors from 'cors'
-import http from 'http'
+import http from 'http';
 
-const app = express()
-app.disable('x-powered-by')
-app.use(express.urlencoded({ extended: true }))
-app.use(express.json())
-app.use(cors({ origin: '*' }))
+import environment from './environment.js';
+import app from './app.js';
+import db from './db.js';
 
-app.get('/ping', (req, res) => {
-    res.status(200).send('pong')
-})
+const PORT = process.env.PORT ?? '4000';
 
-const PORT = process.env.PORT || 4000
-const server = http.createServer(app)
+function tryDBConnection() {
+    return new Promise((resolve, reject) => {
+        environment.SHOW_LOGS && console.log('Testing database connection');
 
-server.listen(PORT, () => {
-    console.log(`Server listening on port :${PORT}`)
-})
+        db.pool.getConnection((err, connection) => {
+            if (err) {
+                reject(err);
+                return;
+            }
 
+            connection.release();
+
+            resolve({ connected: true });
+        });
+    });
+}
+
+function init() {
+    tryDBConnection()
+    .then(() => {
+        environment.SHOW_LOGS && console.log('Successfully established connection with database');
+    })
+    .catch((err) => {
+        environment.SHOW_LOGS && console.log('Failed to established connection with database');
+        environment.SHOW_LOGS && console.error(err);
+    })
+    .finally(() => {
+        const server = http.createServer(app.create());
+
+        server.listen(PORT, () => {
+            console.log(`Server listening on port :${PORT}`);
+        });
+    });
+}
+
+init();
