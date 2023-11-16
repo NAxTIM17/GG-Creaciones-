@@ -2,9 +2,9 @@ CREATE SCHEMA `gg_creaciones`;
 
 use `gg_creaciones`;
 
-DROP TABLE IF EXISTS material;
 DROP TABLE IF EXISTS material_cost;
 DROP TABLE IF EXISTS material_stock;
+DROP TABLE IF EXISTS material;
 DROP TABLE IF EXISTS sale;
 
 CREATE TABLE IF NOT EXISTS material (
@@ -37,6 +37,7 @@ CREATE TABLE IF NOT EXISTS sale (
 	id INT NOT NULL UNIQUE AUTO_INCREMENT,
     income FLOAT NOT NULL,
     cost FLOAT NOT NULL,
+	description VARCHAR(250) NOT NULL,
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT pk_sale PRIMARY KEY (id),
     CONSTRAINT chck_non_negative_sale_income CHECK (income >= 0),
