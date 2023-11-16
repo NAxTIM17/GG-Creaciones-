@@ -1,15 +1,13 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import BusinessRouter from './components/BusinessRouter'
 
 function App() {
   
 
   return (
-    <>
-     <h1>GG-Creaciones</h1>
-    </>
+    <div>
+        <BusinessRouter />
+    </div>
   )
 }
 
