@@ -2,23 +2,39 @@ CREATE SCHEMA `gg_creaciones`;
 
 use `gg_creaciones`;
 
-DROP TABLE IF EXISTS Material;
-DROP TABLE IF EXISTS Sale;
+DROP TABLE IF EXISTS material;
+DROP TABLE IF EXISTS material_cost;
+DROP TABLE IF EXISTS material_stock;
+DROP TABLE IF EXISTS sale;
 
-CREATE TABLE IF NOT EXISTS Material (
-	id INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS material (
+	id INT NOT NULL UNIQUE AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
     unit_of_measurement VARCHAR(50) NOT NULL,
-    stock FLOAT NOT NULL DEFAULT 0,
-    cost FLOAT NOT NULL,
-    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT pk_material PRIMARY KEY (id),
-    CONSTRAINT chck_non_negative_material_stock CHECK (stock >= 0),
-    CONSTRAINT chck_non_negative_material_cost CHECK (cost >= 0)
+    CONSTRAINT pk_material PRIMARY KEY (id)
 );
 
-CREATE TABLE IF NOT EXISTS Sale (
-	id INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS material_cost (
+	material_id INT NOT NULL,
+    value FLOAT NOT NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT pk_material_cost__material
+    FOREIGN KEY (material_id)
+    REFERENCES material (id),
+    CONSTRAINT chck_greater_than_zero_material_cost_value CHECK (value > 0)
+);
+
+CREATE TABLE IF NOT EXISTS material_stock (
+	material_id INT NOT NULL,
+    value FLOAT NOT NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_material_stock__material
+    FOREIGN KEY (material_id)
+    REFERENCES material (id)
+);
+
+CREATE TABLE IF NOT EXISTS sale (
+	id INT NOT NULL UNIQUE AUTO_INCREMENT,
     income FLOAT NOT NULL,
     cost FLOAT NOT NULL,
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
