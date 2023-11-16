@@ -1,7 +1,11 @@
 import cors from 'cors';
 import express from 'express';
 
-// import API from './api'
+import materialsRouter from './API/routes/materials.routes.js'
+import salesRouter from './API/routes/sales.routes.js'
+import profitRouter from './API/routes/profit.routes.js'
+
+
 
 import Middlewares from './middlewares/index.js';
 
@@ -21,10 +25,10 @@ function create() {
         response.status(200).send('pong').end();
     });
 
-    // app.use(API.Router.Sales);
-    // app.use(API.Router.Materials);
-    // app.use(API.Router.Reports);
-    
+    app.use(materialsRouter)
+    app.use(salesRouter)
+    app.use(profitRouter)
+
     app.use(Middlewares.ErrorHandling);
     app.use(Middlewares.NotFound);
 
