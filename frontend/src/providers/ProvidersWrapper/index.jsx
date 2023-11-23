@@ -1,6 +1,7 @@
 import { BrowserRouter } from 'react-router-dom';
-import {NextUIProvider} from '@nextui-org/react'
-const ProvidersWrapper = ({children}) => {
+import { NextUIProvider } from '@nextui-org/react';
+
+const ProvidersWrapper = ({ children }) => {
     return (
         <NextUIProvider>
             <BrowserRouter>
@@ -9,6 +10,6 @@ const ProvidersWrapper = ({children}) => {
         </NextUIProvider>
 
     )
-}
+};
 
-export default ProvidersWrapper
+export default ProvidersWrapper;
