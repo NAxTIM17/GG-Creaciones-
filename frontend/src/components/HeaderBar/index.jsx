@@ -4,13 +4,13 @@ import { useLocation } from "react-router-dom"
 
 const HeaderBar = () => {
     const location = useLocation()
-    const isActive = (a) => location.pathname.includes(a) ? 'text-blue-200' : '' 
+    const isActive = (a) => location.pathname.includes(a) ? 'text-blue-100' : 'text-blue-400' 
     return (
         <Navbar className="bg-blue-900">
             <NavbarBrand>
-                <p className="font-bold text-inherit text-blue-100">GG Creacioness</p>
+                <p className="text-blue-100 font-bold">GG Creaciones</p>
             </NavbarBrand>
-            <NavbarContent>
+            <NavbarContent className="w-10">
                 <NavbarItem>
                     <Link className={isActive('/home')}  href="/home">Home</Link>
                 </NavbarItem>
