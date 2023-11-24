@@ -1,15 +1,12 @@
-import { BrowserRouter } from 'react-router-dom';
-import { NextUIProvider } from '@nextui-org/react';
+import { BrowserRouter } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const ProvidersWrapper = ({ children }) => {
     return (
-        <NextUIProvider>
-            <BrowserRouter>
-                {children}
-            </BrowserRouter>
-        </NextUIProvider>
-
+        <BrowserRouter>
+            {children}
+        </BrowserRouter>
     )
-};
+}
 
 export default ProvidersWrapper;
