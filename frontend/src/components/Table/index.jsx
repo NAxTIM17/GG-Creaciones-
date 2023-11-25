@@ -17,13 +17,17 @@ const columns = [
   },
 ];
 
-export default function TableTitle() {
+export default function TableTitle({filtro}) {
+    const productosFiltrados = productos.filter(producto =>
+        producto.nombre.toLocaleLowerCase().includes(filtro.toLocaleLowerCase())
+      )
+
   return (
     <Table aria-label="Example table with dynamic content">
       <TableHeader columns={columns}>
         {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
       </TableHeader>
-      <TableBody items={productos}>
+      <TableBody items={productosFiltrados}>
         {(item) => (
           <TableRow key={item.key}>
             {(columnKey) => <TableCell>{getKeyValue(item, columnKey)}</TableCell>}

@@ -1,4 +1,4 @@
-import React from "react";
+import {React, useState} from "react";
 import {Input} from "@nextui-org/react";
 
 const SearchIcon = (props) => (
@@ -30,12 +30,21 @@ const SearchIcon = (props) => (
   );
   
 
-export default function SearchBar() {
+export default function SearchBar({value}) {
+
+  const [filtro, setFiltro] = useState('')
+  value(filtro)
+  const handleInputChange = (event) => {
+    setFiltro(event.target.value);
+  }
+
   return (
     <>
       <Input
         label="Search"
         isClearable
+        value={filtro}
+        onChange={handleInputChange}
         radius="lg"
         placeholder="Type to search..."
         startContent={
