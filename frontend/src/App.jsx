@@ -7,8 +7,10 @@ function App() {
     const navigate = useNavigate()
     return (
         <NextUIProvider navigate={navigate}>
-            <HeaderBar />
-            <BusinessRouter />
+            <div className='min-h-screen flex flex-col'>
+                <HeaderBar />
+                <BusinessRouter />
+            </div>
         </NextUIProvider>
     )
 }
