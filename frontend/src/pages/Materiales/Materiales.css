@@ -27,3 +27,8 @@
     font-weight: bold;
     color: rgba(177, 177, 177, 0.539);
 }
+.button-add{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}

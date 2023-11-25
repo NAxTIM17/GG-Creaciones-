@@ -3,10 +3,13 @@ import TableTitle from '../../components/Table'
 import productos from './data'
 import SearchBar from '../../components/SearchBar'
 import { useState } from 'react'
+import { Button } from '@nextui-org/react'
+import { useNavigate } from 'react-router-dom'
 
 export default function Materiales(){
 
     const [filtro, setFiltro] = useState('')
+    const navigate = useNavigate()
 
 
     return(
@@ -21,6 +24,11 @@ export default function Materiales(){
                     </div>
                     <div className="materiales-container-table">
                         <TableTitle filtro={filtro} onFilterChange = {setFiltro}/>
+                    </div>
+                    <div className="button-add">
+                        <Button color='primary' onClick={()=> navigate('/materials/new')}>
+                            Agregar Material
+                        </Button>
                     </div>
                 </div>
             </div>
