@@ -5,7 +5,7 @@ const router = Router();
 
 router.get('/api/materials', getMaterials);
 router.post('/api/materials', addMaterial);
-// router.patch('/api/materials/:id', undefined);
+router.patch('/api/materials/:id', updateMaterial);
 router.delete('/api/materials/:id', deleteMaterial);
 
 export default router;
