@@ -38,3 +38,10 @@ CREATE OR REPLACE VIEW StatsByDay AS
 	FROM sale s
 	GROUP BY Day
 	ORDER BY Day;
+
+-- Materials
+CREATE OR REPLACE VIEW ConsultMaterials AS
+	SELECT material.name AS Nombre, material_stock.value AS Stock, material.unit_of_measurement AS Unidad, material_cost.value AS Precio 
+    FROM material
+    INNER JOIN material_stock ON material.id = material_stock.material_id
+    INNER JOIN material_cost ON material.id = material_cost.material_id;
