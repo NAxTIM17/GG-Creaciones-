@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 // import Home from '../../pages/Home'
 import ErrorPage from '../../pages/Error'
 import SalesPage from '../../pages/Sales'
+import SalesNewPage from '../../pages/Sales/New'
 
 const BusinessRouter = () => {
     return (
@@ -14,7 +15,7 @@ const BusinessRouter = () => {
             </Route>
             <Route path='sales'>
                 <Route index element={<SalesPage />}/>
-                <Route path='new' element={<div>Where new sales should go</div>} />
+                <Route path='new' element={<SalesNewPage />} />
             </Route>
             {/*<Route path='profits' element={<ProfitsPage />} />*/}
 
