@@ -1,11 +1,11 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 
-// import ProfitsPage from '../../pages/Profits'
 // import Home from '../../pages/Home'
 import ErrorPage from '../../pages/Error'
 import SalesPage from '../../pages/Sales'
 import SalesNewPage from '../../pages/Sales/New'
 import Materiales from '../../pages/Materiales'
+import ProfitsPage from '../../pages/Profits'
 
 
 const BusinessRouter = () => {
@@ -20,8 +20,8 @@ const BusinessRouter = () => {
                 <Route index element={<SalesPage />}/>
                 <Route path='new' element={<SalesNewPage />} />
             </Route>
-            {/*<Route path='profits' element={<ProfitsPage />} />*/}
-            <Route path='/' element={<Navigate to='dashboard'/> }/>
+            <Route path='profits' element={<ProfitsPage />} />
+            <Route path='/' element={<Navigate to='home'/> }/>
             <Route path='*' element={<ErrorPage />} />
         </Routes>
     ) 
