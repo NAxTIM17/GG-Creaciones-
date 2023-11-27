@@ -39,16 +39,16 @@ const ProfitsYear = () => {
         },
     })
     return (
-        <div className='flex flex-col gap-2 mt-auto mb-auto'>
+        <div className='flex flex-col gap-2'>
             <h1 className='text-blue-900 text-4xl font-bold text-center'>
                 Estadisticas por Año
             </h1>
             <Table 
             aria-label='Tabla de ganancias del año'
             classNames={{
-                base: 'm-auto max-h-[520px] max-w-2xl overflow-scroll overflow-x-hidden',
-                table: 'min-h-[420px] bg-blue-100',
-                th: 'bg-blue-800 text-white group-hover:text-white',
+                base: 'm-auto max-h-[520px] max-w-2xl overflow-scroll overflow-x-hidden rounded-lg',
+                table: 'bg-blue-100',
+                th: 'h-10 bg-blue-800 text-white group-hover:text-white',
                 loadingWrapper: 'grid items-center'
             }}
             sortDescriptor={profits.sortDescriptor}
@@ -77,11 +77,9 @@ const ProfitsYear = () => {
                         
                         <TableRow 
                         key={profits.items[item]+1}
-                        className="outline-1 outline-blue-900"
                         >
                             {(columnKey) => 
                                 <TableCell
-                                className=""
                                 >
                                     {getKeyValue(item, columnKey)}
                                 </TableCell>

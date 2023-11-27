@@ -18,12 +18,12 @@ const ProfitsPage = () => {
     }
     return (
         <div className='min-w-full min-h-screen my-5'>
-            <div className=''>
+            <div className='flex'>
                 <Select
                 label='Periodo de tiempo'
                 placeholder='Seleccione un periodo de tiempo'
                 variant='bordered'
-                className='max-w-sm'
+                className='max-w-sm m-auto mb-10'
                 color='primary'
                 onChange={handleSelectionChange}
                 value={'day'}
@@ -41,7 +41,6 @@ const ProfitsPage = () => {
                 </Select>
             </div>
             <div className="">
-                {console.log(selectedPeriod)}
                 {(selectedPeriod === 'day') ? <ProfitsDay/> : (selectedPeriod === 'month') ? <ProfitsMonth/>: (selectedPeriod === 'year') ? <ProfitsYear/> : <ProfitsDay/>}
             </div>
             
