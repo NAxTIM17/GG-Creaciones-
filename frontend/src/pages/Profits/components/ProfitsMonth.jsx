@@ -41,16 +41,16 @@ const ProfitsMonth = () => {
         },
     })
     return (
-        <div className='flex flex-col gap-2 mt-auto mb-auto'>
+        <div className='flex flex-col gap-2'>
             <h1 className='text-blue-900 text-4xl font-bold text-center'>
                 Estadisticas por Mes
             </h1>
             <Table 
             aria-label='Tabla de ganancias del mes'
             classNames={{
-                base: 'm-auto max-h-[520px] max-w-2xl overflow-scroll overflow-x-hidden',
-                table: 'min-h-[420px] bg-blue-100',
-                th: 'bg-blue-800 text-white group-hover:text-white',
+                base: 'm-auto max-h-[520px] max-w-2xl overflow-scroll overflow-x-hidden rounded-lg',
+                table: 'bg-blue-100',
+                th: 'h-10 bg-blue-800 text-white group-hover:text-white',
                 loadingWrapper: 'grid items-center'
             }}
             sortDescriptor={profits.sortDescriptor}
@@ -61,7 +61,7 @@ const ProfitsMonth = () => {
                     {(column) => (
                         <TableColumn 
                         key={column.key}
-                        className={`tracking-wider ${column.classname} text-center`}
+                        className={`tracking-wider ${column.classname}`}
                         allowsSorting={column.sortable}
                         >
                             {column.label}
@@ -73,17 +73,15 @@ const ProfitsMonth = () => {
                 items={profits.items} 
                 isLoading={isFetchingProfits}
                 loadingContent={<CircularProgress />}
-                emptyContent={'nada que mostrar'}
+                emptyContent={'Nada que mostrar'}
                 >
                     {(item) => (
                         
                         <TableRow 
                         key={profits.items[item]+1}
-                        className="border border-blue-900"
                         >
                             {(columnKey) => 
                                 <TableCell
-                                className="text-center"
                                 >
                                     {getKeyValue(item, columnKey)}
                                 </TableCell>
