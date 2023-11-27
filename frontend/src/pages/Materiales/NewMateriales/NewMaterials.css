@@ -1,0 +1,36 @@
+.newMaterial{
+    display: flex;
+    justify-content: center;
+    height: 800px;
+    align-items: center;
+}
+.container{
+    margin: 20px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    height: 300px;
+    width: 300px !important;
+    flex-direction: column;
+}
+.container h1{
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+.container-inputs{
+    padding: 5px;
+    flex: 1 1 80%;
+}
+.container-button{
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    flex: 1 1 20%;
+}
+.cantidad{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}

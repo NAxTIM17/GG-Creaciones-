@@ -1,14 +1,14 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import ErrorPage from '../../pages/Error'
 import Materiales from '../../pages/Materiales'
-
+import NewMateriales from '../../pages/Materiales/NewMateriales'
 const BusinessRouter = () => {
     return (
         <Routes>
             <Route path='home' element={<h1>Home</h1>}/>
             <Route path='materials'>
                 <Route index element={<Materiales />}/>
-                <Route path='new' element={<div>Where new materials should go</div>} />
+                <Route path='new' element={<NewMateriales />} />
             </Route>
             <Route path='sales'>
                 <Route index element={<h1>Ventas</h1>}/>

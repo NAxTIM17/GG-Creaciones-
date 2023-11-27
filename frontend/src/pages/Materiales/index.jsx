@@ -11,6 +11,7 @@ export default function Materiales(){
     const [filtro, setFiltro] = useState('')
     const navigate = useNavigate()
 
+    
 
     return(
         <>
@@ -23,7 +24,7 @@ export default function Materiales(){
                         <SearchBar value = {setFiltro} />
                     </div>
                     <div className="materiales-container-table">
-                        <TableTitle filtro={filtro} onFilterChange = {setFiltro}/>
+                        <TableTitle filtro={filtro}/>
                     </div>
                     <div className="button-add">
                         <Button color='primary' onClick={()=> navigate('/materials/new')}>
